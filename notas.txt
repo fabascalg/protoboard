@@ -1,0 +1,61 @@
+TypeScript
+
+con VSCode
+instalar node
+
+instalar tsc:       // compilador normal, crea lo js
+npm install -g typescript
+
+instalar ts-node:   // compilar sobre la marcha. ejecuta de forma directa
+npm install -g ts-node
+
+para crear y gestionar las dependencias en lado cliente de los proyectos ts*:
+npm install -g webpack webpack-cli ts-loader
+
+
+.gitignore
+directorio/
+
+o dentro del directorio
+.gitignore con * de contenido!!!
+
+
+nota:
+el compilador tsc necesita un archivo tsconfig.json
+//- ejemplo del contenido -
+        {
+            "compilerOptions": {
+                "module": "commonjs",
+                "outDir": "./build"
+            }, 
+            "files": [
+                "./003UseTelefono.ts"
+            ]
+        }
+//- fin -
+
+el compilador del webpack necesita un archivo webpack.config.js
+// - ejemplo del contenido -
+const path= required("path");
+
+module.exports = {
+    entry: "./003UseTelefono.ts";
+    module: {
+        rules: {
+            test: /\.tsx?$/,
+            use: "ts-loader",
+            exclude: /node_modules/
+        }
+    },
+    resolve: {
+        extensions: [ '.tsx', '.ts', '.js']
+    },
+    output: {
+        filename: './build/bundle.js',
+        path: path.resolve(__dirname,'dist')
+    }
+}
+// - fin -
+
+*** server side ***
+
