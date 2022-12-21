@@ -1,0 +1,34 @@
+get http://localhost:3000/facturas 
+###
+
+delete http://localhost:3000/facturas/1
+
+###
+get http://localhost:3000/facturas/1
+
+###
+post http://localhost:3000/facturas
+content-type: application/json
+
+{
+    "numero": 10,
+    "concepto": "teclado",
+    "importe": 45
+}
+
+###
+get http://localhost:3000/facturas/filtro
+
+###
+get http://localhost:3000/facturas/filtro/la
+
+###
+
+post http://localhost:3000/facturas
+content-type: application/json
+
+{
+    "numero": 20,
+    "concepto": "laptop lenovo thinkpad",
+    "importe": 650
+}
