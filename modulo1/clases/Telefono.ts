@@ -12,5 +12,7 @@
 export class Telefono{
     constructor(public marca:string,public modelo:string,public precio:number){
     }
+    
+    
 }
 
